@@ -1,6 +1,6 @@
 # Example of workflow with better.js cache folder
 
-See description of [this workflow](https://github.com/jeromeetienne/better.js/blob/master/contribs/jsdoc2betterjs/WORKFLOW.md).
+See description of [this workflow](https://github.com/jeromeetienne/jsdoced.js/blob/master/WORKFLOW.md).
 
 ## Steps by Steps
 
