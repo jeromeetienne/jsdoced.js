@@ -90,7 +90,7 @@ var cmdlineOptions	= {
 	strictReturns		: false,
 	privatizeClasses	: false,
 	logEvents		: false,
-	propertyEnabled		: true,
+	propertyEnabled		: false,	// (beta)
 
 	generateSourceMap	: false,
 	
