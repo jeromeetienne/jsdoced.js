@@ -5,7 +5,7 @@ output: index.html
 <base target='_blank'/>
 <style>pre { background: lightgrey; font-size: 100%;}</style>
 
-# jsdoc2betterjs
+# jsdoced.js
 ## - An Analysis -
 ## by [Jerome Etienne](http://twitter.com/jerome_etienne)
 
@@ -68,4 +68,4 @@ It is like a [debug build](http://vinayakgarg.wordpress.com/2012/03/31/differenc
 
 --
 
-# Check it out at [betterjs.org](http://betterjs.org/docs/betterjs-jsdoc2betterjs.html)
+# Check it out at [betterjs.org](http://betterjs.org/docs/betterjs-jsdoced.js.html)

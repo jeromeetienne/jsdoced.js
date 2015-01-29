@@ -1,4 +1,4 @@
-title: jsdoc2betterjs - Test your javascript with jsdoc
+title: jsdoced.js - Test your javascript with jsdoc
 output: index.html
 --
 
@@ -6,7 +6,7 @@ output: index.html
 <base target='_blank'/>
 <style>pre { background: lightgrey; font-size: 80%;}</style>
 
-# jsdoc2betterjs
+# jsdoced.js
 ## - Test your Javascript with jsdoc -
 ## - Step By Step -
 ## by [Jerome Etienne](http://twitter.com/jerome_etienne)
@@ -49,9 +49,9 @@ var addNumbers = function(value1, value2){
 
 --
 
-### jsdoc2betterjs helps you do that
+### jsdoced.js helps you do that
 
-* jsdoc2betterjs is a javascript-to-javascript compiler
+* jsdoced.js is a javascript-to-javascript compiler
 * it converts your jsdoc into better.js code
 * better.js code will make sure your jsdoc is respected
 
@@ -63,7 +63,7 @@ var addNumbers = function(value1, value2){
 
 --
 
-# yourFile.js goes thru jsdoc2betterjs
+# yourFile.js goes thru jsdoced.js
 
 --
 
@@ -198,4 +198,3 @@ addNumbers(1,3,5);
 --
 
 # Check it out [betterjs.org](http://betterjs.org)
-

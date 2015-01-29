@@ -1,4 +1,4 @@
-title: jsdoc2betterjs - Test your javascript with jsdoc
+title: jsdoced.js - Test your javascript with jsdoc
 output: index.html
 --
 
@@ -6,13 +6,13 @@ output: index.html
 <base target='_blank'/>
 <style>pre { background: lightgrey; font-size: 100%;}</style>
 
-# jsdoc2betterjs
+# jsdoced.js
 ## - Test your Javascript with jsdoc -
 ## by [Jerome Etienne](http://twitter.com/jerome_etienne)
 
 --
 
-# What is jsdoc2betterjs ?
+# What is jsdoced.js ?
 
 --
 
@@ -157,26 +157,26 @@ var stringLength = Better.Function(function(myString){
 
 --
 
-# [jsdoc2betterjs](http://betterjs.org/docs/betterjs-jsdoc2betterjs.html)
+# [jsdoced.js](http://betterjs.org/docs/betterjs-jsdoced.js.html)
 # Automatize it all!
 
 --
 
-### What Is jsdoc2betterjs ?
+### What Is jsdoced.js ?
 
 * It do all this automatically!
 * it extract jsdoc from your javascript files
 * it produces a better.js version based on your jsdoc
 
 ```
-jsdoc2betterjs myFile.js > myFile.better.js
+jsdoced.js myFile.js > myFile.better.js
 ```
 
 * Now run the better.js version
 
 --
 
-### Tech Bits About jsdoc2betterjs
+### Tech Bits About jsdoced.js
 * it use [recast](https://github.com/benjamn/recast) to parse javascript. a Great tool!
 * it is all 100% javascript
 * it run on browser and node.js
@@ -210,4 +210,4 @@ jsdoc2betterjs myFile.js > myFile.better.js
 
 --
 
-# Check it out at [betterjs.org](http://betterjs.org/docs/betterjs-jsdoc2betterjs.html)
+# Check it out at [betterjs.org](http://betterjs.org/docs/betterjs-jsdoced.js.html)
