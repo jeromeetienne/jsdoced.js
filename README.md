@@ -1,19 +1,19 @@
-jsdoc2betterjs
+jsdoced.js
 ==============
 
 Tool which read your javascript code with jsdoc and ensure your jsdoc is respected when it is executed.
 
-You write your javascript files as usual, you add classic jsdoc to it because you are a nice guy. Now ```jsdoc2betterjs yourCode.js``` will produce a ```yourCode.better.js``` code. It is the same as ```youCode.js``` but includes all the checks to ensure your jsdoc is respected.
+You write your javascript files as usual, you add classic jsdoc to it because you are a nice guy. Now ```jsdoced.js yourCode.js``` will produce a ```yourCode.better.js``` code. It is the same as ```youCode.js``` but includes all the checks to ensure your jsdoc is respected.
 It uses [better.js](http://betterjs.org) to perform this testing during execution.
 
 As better.js works run in browser and node.js, you can use that in any javascript. To run the produces betterjs code, just include [better.js](https://github.com/jeromeetienne/better.js/blob/master/build/better.js)
-To see how to easily include it in your software, be sure to check [this workflow](https://github.com/jeromeetienne/better.js/blob/master/contribs/jsdoc2betterjs/WORKFLOW.md).
+To see how to easily include it in your software, be sure to check [this workflow](https://github.com/jeromeetienne/better.js/blob/master/contribs/jsdoced.js/WORKFLOW.md).
 
 ## Inline Help
 
 ```bash
-$ jsdoc2betterjs -h
-Usage: jsdoc2betterjs [options] file.js file2.js...
+$ jsdoced.js -h
+Usage: jsdoced.js [options] file.js file2.js...
 
 Makes sure jsdoc is respected during execution.
 More about better.js at http://betterjs.org
@@ -45,4 +45,3 @@ Options:
     - better.js: [Number]
 * @param {number} [foo] - optional number
     - better.js: [number|undefined]
-

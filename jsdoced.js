@@ -7,7 +7,7 @@ var builders	= recast.types.builders;
 //		Inline help
 //////////////////////////////////////////////////////////////////////////////////
 if( process.argv[2] === '-h' || process.argv[2] === undefined ){
-	console.log('Usage: jsdoc2betterjs [options] file.js file2.js...')
+	console.log('Usage: jsdoced.js [options] file.js file2.js...')
 	console.log('')
 	console.log('Makes sure jsdoc is respected during execution.')
 	console.log('More about better.js at http://betterjs.org')
@@ -76,7 +76,7 @@ if( process.argv[2] === 'servecachedir' ){
 	})
 	var port	= process.env.PORT	|| 8000
 	var listenAddr	= process.env.IP	|| '0.0.0.0'
-	console.log('jsdoc2betterjs: start serving better.js cache folder in "'+cacheDirName+'/"')
+	console.log('jsdoced.js: start serving better.js cache folder in "'+cacheDirName+'/"')
 	console.log('Listening on '+listenAddr+':'+port)
 	server.listen(port, listenAddr);
 	return
@@ -126,7 +126,7 @@ for(var i = 2; process.argv[i] !== undefined; i++){
 }
 
 if( cmdlineOptions.fileNames.length === 0 ){
-	console.error('jsdoc2betterjs: a filename MUST be provided!')
+	console.error('jsdoced.js: a filename MUST be provided!')
 	process.exit()
 }
 
