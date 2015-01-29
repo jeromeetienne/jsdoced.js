@@ -138,6 +138,7 @@ if( cmdlineOptions.fileNames.length === 0 ){
 cmdlineOptions.fileNames.forEach(function(sourceFileName){
 
 	var processOne	= require('./libs/processFile.js').processOne
+	
 	processOne(sourceFileName, cmdlineOptions, function(output){
 		//////////////////////////////////////////////////////////////////////////////////
 		//		write the code
@@ -147,7 +148,6 @@ cmdlineOptions.fileNames.forEach(function(sourceFileName){
 		// Append the sourcemap url to the better.js files
 		if( cmdlineOptions.generateSourceMap === true ){
 			code += '\n\n//# sourceMappingURL=' + require('path').basename(recastOption.sourceMapName);
-console.assert(cmdlineOptions.codeFolderName === null)
 		}
 
 /**
