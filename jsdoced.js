@@ -39,7 +39,7 @@ if( process.argv[2] === '-h' || process.argv[2] === undefined ){
 	process.exit()
 }
 if( process.argv[2] === '-v' ){
-	var packageJson	= require('./../../package.json')
+	var packageJson	= require('./package.json')
 	console.log(packageJson.version)
 	return
 }
