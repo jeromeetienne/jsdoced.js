@@ -21,10 +21,10 @@ More about better.js at http://betterjs.org
 Options:
 	-m, --source-map	Generate source map file. file.js into file.js.map
 
-	-d DIR	Write generated code into DIR with a folder hierachie similar to relative
+	-d DIR			Write generated code into DIR with a folder hierachie similar to relative
 		path to the original file.js.
 
-	-o, --output       Output file (default STDOUT).
+	-o, --output    	Output file (default STDOUT).
 
 	-s, --strict-jsdoc	If @return or no @param are undefined in jsdoc, check it is nothing during execution
 
@@ -39,7 +39,7 @@ Options:
 
 	-v	Display version
 
-servecachedir [DIR]	server this directory as cache directory. defalt to .betterjs
+servecachedir [DIR]	server this directory as cache directory. default to .betterjs
 ```
 
 # Support funky type syntax
