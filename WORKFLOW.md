@@ -5,7 +5,7 @@ cache your betterjs files.
 It is the base of a possible workflow
 to handle your [better.js](http://betterjs.org) files.
 This workflow is made to easily test your code with your jsdoc.
-It is all based on [jsdoc2betterjs](http://betterjs.org/docs/betterjs-jsdoc2betterjs.html).
+It is all based on [jsdoced.js](http://betterjs.org/docs/betterjs-jsdoced.js.html).
 This extracts the jsdoc and produces the files to test it.
 
 It has been designed to be non obstrusive, thus you can integrate it easily in your workflow.
@@ -57,7 +57,7 @@ remove it at will.
 If you want, you can scan your whole directory and generate all the associated better.js with this command.
 
 ```
-jsdoc2betterjs -d .betterjs *.js **/*.js
+jsdoced.js -d .betterjs *.js **/*.js
 ```
 
 ## How to remove a .betterjs directory ?
@@ -85,17 +85,17 @@ Here is a possible Makefile.
 ###################################################
 # Support betterjs cache dir - http://betterjs.org
 buildBetterjs:
-    jsdoc2betterjs -s -p -d .betterjs js/*.js js/**/*.js
+    jsdoced.js -s -p -d .betterjs js/*.js js/**/*.js
 
 watchBetterjs: buildBetterjs
     # fswatch is available at https://github.com/emcrisostomo/fswatch
-    fswatch js/ | xargs -n1 jsdoc2betterjs -s -p -d .betterjs
+    fswatch js/ | xargs -n1 jsdoced.js -s -p -d .betterjs
 
 cleanBetterjs:
     rm -rf .betterjs
 
 serverBetterjs: buildBetterjs
-    jsdoc2betterjs servecachedir .betterjs
+    jsdoced.js servecachedir .betterjs
 
 ###################################################
 ```
