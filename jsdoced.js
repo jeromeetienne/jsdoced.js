@@ -14,16 +14,16 @@ if( process.argv[2] === '-h' || process.argv[2] === undefined ){
 
 	console.log('')
 	console.log('Options:')
-	console.log('\t-m	Generate source map file. file.js into file.js.map')
-	console.log('')
-	console.log('\t-w	Write generated code from file.js into file.better.js')
+	console.log('\t-m, --source-map	Generate source map file. file.js into file.js.map')
 	console.log('')
 	console.log('\t-d DIR	Write generated code into DIR with a folder hierachie similar to relative')
 	console.log('\t	path to the original file.js.')
 	console.log('')
-	console.log('\t-s	If @return or no @param are undefined in jsdoc, check it is nothing during execution')
+	console.log('\t-o, --output       Output file (default STDOUT).')
 	console.log('')
-	console.log('\t-p	Privatize the classes')
+	console.log('\t-s, --strict-jsdoc	If @return or no @param are undefined in jsdoc, check it is nothing during execution')
+	console.log('')
+	console.log('\t-p,--privatize-class	Privatize the classes')
 	console.log('')
 	console.log('\t--log	Log events on stderr')
 	console.log('')
@@ -34,7 +34,7 @@ if( process.argv[2] === '-h' || process.argv[2] === undefined ){
 	console.log('')
 	console.log('\t-v	Display version')
 	console.log('')
-	console.log('servecachedir [DIR]	server this directory as cache directory. defalt to .betterjs')
+	console.log('servecachedir [DIR]	server this directory as cache directory. default to .betterjs')
 	console.log('')
 	process.exit()
 }
@@ -93,23 +93,28 @@ var cmdlineOptions	= {
 	propertyEnabled		: true,
 
 	generateSourceMap	: false,
+	
+	outputFileName		: null,
 	codeFolderName		: null,
 	fileNames		: [],
 }
 
 for(var i = 2; process.argv[i] !== undefined; i++){
-	if( process.argv[i] === '-s' ){
+	if( process.argv[i] === '-s' || process.argv[i] === '--strict-jsdoc' ){
 		cmdlineOptions.strictParams	= true
 		cmdlineOptions.strictReturns	= true
 		continue;
-	}else if( process.argv[i] === '-p' ){
+	}else if( process.argv[i] === '-p' ||  process.argv[i] === '--privatize-class' ){
 		cmdlineOptions.privatizeClasses	= true
 		continue;
-	}else if( process.argv[i] === '-m' ){
+	}else if( process.argv[i] === '-m' ||  process.argv[i] === '--source-map'  ){
 		cmdlineOptions.generateSourceMap= true
 		continue;
 	}else if( process.argv[i] === '-d' ){
 		cmdlineOptions.codeFolderName	= process.argv[++i]
+		continue;
+	}else if( process.argv[i] === '-o' || process.argv[i] === '--output' ){
+		cmdlineOptions.outputFileName	= process.argv[++i]
 		continue;
 	}else if( process.argv[i] === '--log' ){
 		cmdlineOptions.logEvents	= true
@@ -134,7 +139,12 @@ if( cmdlineOptions.fileNames.length === 0 ){
 //		Comment								//
 //////////////////////////////////////////////////////////////////////////////////
 
-
+// if needed, reset cmdlineOptions.outputFileName before appending all the processed file
+if( cmdlineOptions.outputFileName ){
+	var fileName	= cmdlineOptions.outputFileName
+	require('fs').writeFileSync(fileName, '')
+}
+			
 cmdlineOptions.fileNames.forEach(function(sourceFileName){
 
 	var processOne	= require('./libs/processFile.js').processOne
@@ -172,6 +182,10 @@ cmdlineOptions.fileNames.forEach(function(sourceFileName){
 			// console.log('dstFolder', dstFolder, dstJSName)
 			// actually write the destination files
 			require('fs').writeFileSync(dstJSName, code, 'utf8');
+		}else if( cmdlineOptions.outputFileName ){
+			// append code of this file into cmdlineOptions.outputFileName
+			var fileName	= cmdlineOptions.outputFileName
+			require('fs').appendFileSync(fileName, code)
 		}else{
 			// else output to stdout
 			process.stdout.write(code)
