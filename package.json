@@ -1,9 +1,9 @@
 {
   "name": "jsdoced.js",
-  "version": "0.1.1",
-  "description": "Test if your javascript run according to your jsdoc",
+  "version": "0.1.3",
+  "description": "js-to-js compiler to make js better.",
   "bin": {
-    "jsdoced-js" : "./jsdoced-js"
+    "jsdoced.js" : "./jsdoced.js"
     },
   "directories": {
     "doc": "docs",
