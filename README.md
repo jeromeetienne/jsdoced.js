@@ -19,20 +19,27 @@ Makes sure jsdoc is respected during execution.
 More about better.js at http://betterjs.org
 
 Options:
-    -m  Generate source map file. file.js into file.js.map
+	-m, --source-map	Generate source map file. file.js into file.js.map
 
-    -w  Write generated code from file.js into file.better.js
+	-d DIR	Write generated code into DIR with a folder hierachie similar to relative
+		path to the original file.js.
 
-    -d DIR  Write generated code into DIR with a folder hierachie similar to relative
-        path to the original file.js.
+	-o, --output       Output file (default STDOUT).
 
-    -s  If @return or no @param are defined in jsdoc, check it is nothing during execution
+	-s, --strict-jsdoc	If @return or no @param are undefined in jsdoc, check it is nothing during execution
 
-    -p  Privatize the classes
+	-p,--privatize-class	Privatize the classes
 
-    -h  Display inline help
+	--log	Log events on stderr
 
-    -v  Display version
+	--property	Enable Better.Property (beta)
+	--noproperty	Disable Better.Property (beta)
+
+	-h	Display inline help
+
+	-v	Display version
+
+servecachedir [DIR]	server this directory as cache directory. defalt to .betterjs
 ```
 
 # Support funky type syntax
