@@ -2,7 +2,7 @@ var foo	= {}
 
 /**
  * super description
- * @param  {String=} value - bla
+ * @param  {THREE.Vector3} value - bla
  */
 this.good.bli	= function(value){
 	console.log(value)

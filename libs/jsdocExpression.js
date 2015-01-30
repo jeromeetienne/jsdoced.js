@@ -1,11 +1,14 @@
 var jsdocExpression	= jsdocExpression	|| {}
 
+// export jsdocExpression
 if( typeof(window) === 'undefined' )	module.exports	= jsdocExpression;
 
+// import recast
 var recast	= require("recast");
 var types	= recast.types;
 var namedTypes	= types.namedTypes;
 var builders	= types.builders;
+
 
 var jsdocParse	= require('./jsdocParse.js')
 
@@ -18,7 +21,7 @@ var jsdocParse	= require('./jsdocParse.js')
  * 
  * @param  {Object} 		jsdocJson - the jsdoc in json
  * @param  {FunctionExpression} functionExpression - the FunctionExpression from the parser associated with the jsdoc
- * @return {CallExpression}     the resulting call expression
+ * @return {CallExpression}     - the resulting call expression
  */
 jsdocExpression.jsdocJsonFunction2CallExpression	= function(jsdocJson, functionExpression, cmdlineOptions){
 
@@ -35,7 +38,7 @@ jsdocExpression.jsdocJsonFunction2CallExpression	= function(jsdocJson, functionE
 		var argumentsExpressions	= []
 		Object.keys(jsdocJson.params).forEach(function(paramName){
 			var param	= jsdocJson.params[paramName]
-			var expression	= jsdocExpression.jsdocType2Expression(param.type)
+			var expression	= jsdocExpression.jsdocType2Expression(param.type, cmdlineOptions)
 			argumentsExpressions.push(expression)
 		})
 
@@ -63,7 +66,7 @@ jsdocExpression.jsdocJsonFunction2CallExpression	= function(jsdocJson, functionE
 	}
 	// honor jsdocJson.return
 	if( jsdocJson.return ){
-		var returnExpression	= jsdocExpression.jsdocType2Expression(jsdocJson.return.type)
+		var returnExpression	= jsdocExpression.jsdocType2Expression(jsdocJson.return.type, cmdlineOptions)
 		options.push(builders.property('init', 
 			builders.identifier('return'), 
 			returnExpression
@@ -145,7 +148,7 @@ jsdocExpression.jsdocJsonProperty2AssignmentExpression	= function(jsdocJson, ass
 	var options	= []
 
 	if( jsdocJson.type ){
-		var typeExpression	= jsdocExpression.jsdocType2Expression(jsdocJson.type)
+		var typeExpression	= jsdocExpression.jsdocType2Expression(jsdocJson.type, cmdlineOptions)
 		options.push(builders.property('init', 
 			builders.identifier('type'), 
 			typeExpression
@@ -199,7 +202,7 @@ jsdocExpression.jsdocJsonProperty2AssignmentExpression	= function(jsdocJson, ass
  * @param  {Object}	param - the @param parsed in jsdocJson
  * @return {Expression} the built expression
  */
-jsdocExpression.jsdocType2Expression	= function(type){
+jsdocExpression.jsdocType2Expression	= function(type, cmdlineOptions){
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Comments
@@ -237,8 +240,10 @@ jsdocExpression.jsdocType2Expression	= function(type){
 			var expression	= builders.identifier('Number')	
 		}else if( type.toLowerCase() === 'undefined' ){
 			var expression	= builders.identifier('undefined')	
-		}else{
+		}else if( cmdlineOptions.typeInString === false ){
 			var expression	= builders.identifier( type )	
+		}else{
+			var expression	= builders.literal(type)	
 		}
 
 		return expression

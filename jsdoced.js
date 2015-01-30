@@ -8,8 +8,9 @@ var builders	= recast.types.builders;
 //////////////////////////////////////////////////////////////////////////////////
 if( process.argv[2] === '-h' || process.argv[2] === undefined ){
 	console.log('Usage: jsdoced.js [options] file.js file2.js...')
+	console.log('A javascript to javascript compiler to make javascript better.js')
 	console.log('')
-	console.log('Makes sure jsdoc is respected during execution.')
+	console.log('It makes sure jsdoc is respected during execution.')
 	console.log('More about better.js at http://betterjs.org')
 
 	console.log('')
@@ -23,16 +24,18 @@ if( process.argv[2] === '-h' || process.argv[2] === undefined ){
 	console.log('')
 	console.log('\t-s, --strict-jsdoc	If @return or no @param are undefined in jsdoc, check it is nothing during execution')
 	console.log('')
-	console.log('\t-p,--privatize-class	Privatize the classes')
+	console.log('\t-p, --privatize-class	Privatize the classes')
 	console.log('')
-	console.log('\t--log	Log events on stderr')
+	console.log('\t-t, --type-in-string	Put type in string (avoid circular dependancy)')
+	console.log('')
+	console.log('\t--log		Log events on stderr')
 	console.log('')
 	console.log('\t--property	Enable Better.Property (beta)')
-	console.log('\t--noproperty	Disable Better.Property (beta)')
+	console.log('\t--no-property	Disable Better.Property (beta)')
 	console.log('')
-	console.log('\t-h	Display inline help')
+	console.log('\t-h		Display inline help')
 	console.log('')
-	console.log('\t-v	Display version')
+	console.log('\t-v		Display version')
 	console.log('')
 	console.log('servecachedir [DIR]	server this directory as cache directory. default to .betterjs')
 	console.log('')
@@ -91,6 +94,8 @@ var cmdlineOptions	= {
 	privatizeClasses	: false,
 	logEvents		: false,
 	propertyEnabled		: false,	// (beta)
+	
+	typeInString		: false,
 
 	generateSourceMap	: false,
 	
@@ -116,13 +121,16 @@ for(var i = 2; process.argv[i] !== undefined; i++){
 	}else if( process.argv[i] === '-o' || process.argv[i] === '--output' ){
 		cmdlineOptions.outputFileName	= process.argv[++i]
 		continue;
+	}else if( process.argv[i] === '-t' || process.argv[i] === '--type-in-string' ){
+		cmdlineOptions.typeInString	= true
+		continue;
 	}else if( process.argv[i] === '--log' ){
 		cmdlineOptions.logEvents	= true
 		continue;
 	}else if( process.argv[i] === '--property' ){
 		cmdlineOptions.propertyEnabled	= true
 		continue;
-	}else if( process.argv[i] === '--noproperty' ){
+	}else if( process.argv[i] === '--no-property' ){
 		cmdlineOptions.propertyEnabled	= false
 		continue;
 	}else{
