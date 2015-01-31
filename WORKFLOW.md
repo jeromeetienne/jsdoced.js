@@ -85,24 +85,36 @@ Here is a possible Makefile.
 ###################################################
 # Support betterjs cache dir - http://betterjs.org
 watchBetterjs: buildBetterjs
-    # fswatch is available at https://github.com/emcrisostomo/fswatch
-    fswatch js/ | xargs -n1 jsdoced.js -s -p -d .betterjs
+        # fswatch is available at https://github.com/emcrisostomo/fswatch
+        fswatch js/ | xargs -n1 jsdoced.js -s -p -d .betterjs
 
 buildBetterjs:
-    jsdoced.js -s -p -d .betterjs js/*.js js/**/*.js
+        jsdoced.js -s -p -d .betterjs js/*.js
 
 cleanBetterjs:
-    rm -rf .betterjs
+        rm -rf .betterjs
 
 serverBetterjs: buildBetterjs
-    jsdoced.js servecachedir .betterjs
+        jsdoced.js servecachedir .betterjs
 
 ###################################################
 ```
 
-
 About fswatch, [fswatch](https://github.com/emcrisostomo/fswatch) is a simple tool i use to detect change in the filesystem. You can use another if you see fit. fswatch works well here as it output the filename of the changed file. Thus it is all incremental. When you change one file, only this file is regenerated.
 
+*Little trick*: To catch all ```.js``` files below ```.betterjs```, use the following
+```
+buildBetterjs:
+        jsdoced.js -s -p -d .betterjs `find . -path ./.betterjs -prune -o -name '*.js' -type f -print`
+```
+
+*Little trick 2*: if you want to debug fast with jsdoced.js, you can use the following.
+It creates the .betterjs directory, watch for any modification, recompile live, and 
+clean everything when you are done watching.
+
+```bash
+make watchBetterjs || make cleanBetterjs
+```
 
 ## How to integrate it if i use express routing ?
 
