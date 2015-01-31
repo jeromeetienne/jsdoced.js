@@ -84,12 +84,12 @@ Here is a possible Makefile.
 ```
 ###################################################
 # Support betterjs cache dir - http://betterjs.org
-buildBetterjs:
-    jsdoced.js -s -p -d .betterjs js/*.js js/**/*.js
-
 watchBetterjs: buildBetterjs
     # fswatch is available at https://github.com/emcrisostomo/fswatch
     fswatch js/ | xargs -n1 jsdoced.js -s -p -d .betterjs
+
+buildBetterjs:
+    jsdoced.js -s -p -d .betterjs js/*.js js/**/*.js
 
 cleanBetterjs:
     rm -rf .betterjs
