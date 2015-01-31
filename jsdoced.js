@@ -15,18 +15,22 @@ if( process.argv[2] === '-h' || process.argv[2] === undefined ){
 
 	console.log('')
 	console.log('Options:')
-	console.log('\t-m, --source-map	Generate source map file. file.js into file.js.map')
+	console.log('\t-m, --source-map')
+	console.log('\t		Generate source map file. file.js into file.js.map')
 	console.log('')
-	console.log('\t-d DIR	Write generated code into DIR with a folder hierachie similar to relative')
-	console.log('\t	path to the original file.js.')
+	console.log('\t-d DIR		Write generated code into DIR with a folder hierachie similar to relative')
+	console.log('\t		path to the original file.js.')
 	console.log('')
-	console.log('\t-o, --output       Output file (default STDOUT).')
+	console.log('\t-o, --output	Output file (default STDOUT).')
 	console.log('')
-	console.log('\t-s, --strict-jsdoc	If @return or no @param are undefined in jsdoc, check it is nothing during execution')
+	console.log('\t-s, --strict-jsdoc')
+	console.log('\t		If @return or no @param are undefined in jsdoc, check it is nothing during execution')
 	console.log('')
-	console.log('\t-p, --privatize-class	Privatize the classes')
+	console.log('\t-p, --privatize-class')
+	console.log('\t		Privatize the classes')
 	console.log('')
-	console.log('\t-t, --type-in-string	Put type in string (avoid circular dependancy)')
+	console.log('\t-t, --type-in-string')
+	console.log('\t		Put type in string (avoid circular dependancy)')
 	console.log('')
 	console.log('\t--log		Log events on stderr')
 	console.log('')
@@ -105,6 +109,13 @@ var cmdlineOptions	= {
 }
 
 for(var i = 2; process.argv[i] !== undefined; i++){
+	// assume any name do not start with ```-```
+	// - if it does, up to the caller to add a ```./-``` in front
+	if( process.argv[i][0] !== '-' ){
+		cmdlineOptions.fileNames.push( process.argv[i] )
+		continue
+	}
+	// process each known command line options
 	if( process.argv[i] === '-s' || process.argv[i] === '--strict-jsdoc' ){
 		cmdlineOptions.strictParams	= true
 		cmdlineOptions.strictReturns	= true
@@ -134,7 +145,9 @@ for(var i = 2; process.argv[i] !== undefined; i++){
 		cmdlineOptions.propertyEnabled	= false
 		continue;
 	}else{
-		cmdlineOptions.fileNames.push( process.argv[i] )
+		// notify the error of options
+		console.error('invalid option', process.argv[i])
+		process.exit()
 	}
 }
 
