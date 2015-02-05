@@ -7,7 +7,7 @@
     <meta name="description" content="jsdoced.js - test your javascript with jsdoc">
     <meta name="author" content="Jerome Etienne">
     <link rel="shortcut icon" href="www/images/logo/logo-betterjs-512x512.png">
-    <link rel="canonical" href="http://jsdoced.org/"/>
+    <link rel="canonical" href="http://jsdoced.org"/>
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <title>jsdoced.js - test your code with jsdoc</title>
@@ -55,11 +55,11 @@
       ga('send', 'pageview');
     </script>
     <!-- github ribbon -->
-    <a href="https://github.com/jeromeetienne/better.js/" target='_blank'><img style="position: absolute; top: 0; right: 0; border: 0;z-index:2000" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/jeromeetienne/jsdoced.js/" target='_blank'><img style="position: absolute; top: 0; right: 0; border: 0;z-index:2000" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
     <!-- twitter, google plus -->
     <div style='position: absolute; top: 15px; right: 130px; z-index: 9000;'>
             <!-- twitter -->
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="jerome_etienne" data-text='Better.js - For a Better Javascript in Javascript!'>Tweet</a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="jerome_etienne" data-text='jsdoced.js - a js to js compiler to make js better!'>Tweet</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
             <!-- ******************* google plus ************************* -->
@@ -88,7 +88,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Jsdoc Javascript</a>
+          <a class="navbar-brand" href="/">Jsdoced Javascript</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -107,13 +107,11 @@
       <!-- START THE FEATURETTES -->
 
       <div class="jumbotron">
-        <h1 style='text-align:center;'><span style='color: orange; font-weight: bolder;'>jsdoced.js</span>
+        <h1 style='text-align:center; '>
+                <span style='color: orange; font-weight: bolder;font-size: 150%;'>JSDOCed Javascript</span>
         </h1>
         <h2 style='text-align:center;'>
-                Javascript To Javascript Compiler
-        </h2>
-        <h2 style='text-align:center;'>
-                To Make Javascript Better
+                Javascript To Javascript Compiler To Make Javascript Better
         </h2>
         <br/>
         <p class="lead">
@@ -121,9 +119,9 @@
           Using your jsdoc comments, it will generate another javascript
           file which <strong>makes sure your jsdoc is respected during execution.</strong>
         </p>
-        <h2 style='text-align:center;'>
+        <p>
           The more you documents your code, the safer it becomes.
-        </h2>
+        </p>
       </div>
       <!-- Three columns of text below the carousel -->
       <div class="row">
@@ -195,13 +193,13 @@ var stringLength  = function(aString){
 $ npm install -g jsdoced.js
 
 # Generate the better.js automatically
-$ jsdoced.js -o file.better.js file.js 
+$ jsdoced.js file.js -o file.jsdoced.js 
 </pre>
         </div>
         <div class="col-md-5">
-          <h2 class="featurette-heading">Convert .js files into .better.js</h2>
+          <h2 class="featurette-heading">Convert .js files into .jsdoced.js</h2>
           <p class="lead"><code>jsdoced.js</code> analyses your code and extract jsdoc.
-            It <strong>produces a .better.js file</strong> with the additional
+            It <strong>produces a .jsdoced.js file</strong> with the additional
             code to <strong>check if your jsdoc is respected at runtime</strong>.
           </p>
         </div>
@@ -215,8 +213,9 @@ $ jsdoced.js -o file.better.js file.js
           <h2 class="featurette-heading">Here is the .better.js file</h2>
           <p class="lead">On the right you can see the produced code.
             The original function is wrapped in
-            a <a href='betterjs-function.html'>Better.Function</a> with all the
+            a <a href='http://betterjs.org/docs/betterjs-function.html'>Better.Function</a> with all the
             types informations properly declared.
+            So be sure to include <a target='_blank' href='http://betterjs.org'>better.js</a>.
             Thus if your jsdoc isn't respected during execution,
             you will be <strong>warned imediatly!</strong>
           </p>
