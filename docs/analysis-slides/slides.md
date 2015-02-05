@@ -15,33 +15,30 @@ output: index.html
 
 --
 
-### Create Virtuous cycle
+### The more you document your code the safer it become
 
-* documenting doc is good
-* testing is good
-* the more documented is your code, the more tested is safer it become
+- Documenting doc is good for your devs
+- Testing is good for your users
+
+**Create Virtuous cycle !**
 
 --
 
-### Expand test coverage
+### Tested During Execution
+
+* Javascript is a dynamic language
+* it has to be tested during execution
+
+**Tests are done when they need to be**
+
+--
+
+### It detects a new family of error 
 
 * jsdoc provide plenty of useful information
 * it was rarely/never use to test code
-* it detects a new type of error.
 
---
-
-### During Execution
-
-* js is really dynamic
-* it has to be tested during execution
-
---
-
-### Plain old javascript
-
-* all code is actually valid javascript
-* no new language to learn
+**Expand test coverage !!!**
 
 --
 
