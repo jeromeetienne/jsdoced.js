@@ -8,7 +8,7 @@
   - change any mentions of jsdoc2betterjs and change it to jsdoced.js
 
 
-- DONE fix the slides too
+- DONE fix the slides too 
 
 
 
