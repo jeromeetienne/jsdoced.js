@@ -63,8 +63,10 @@ var processFile	= function processFile(filename, cmdlineOptions, onProcessed){
 				// if no jsdocJson, do nothing
 				if( jsdocJson === null )	return
 				
-				console.log('jsdoc found in arrow function')			
+				console.log('jsdoc found in arrow function', jsdocJson)	
+				console.dir(path)		
 			},
+			
 			/**
 			 * receive the FunctionExpression node
 			 */
@@ -88,6 +90,7 @@ var processFile	= function processFile(filename, cmdlineOptions, onProcessed){
 				// actually replace the node
 				path.replace(callExpression)
 			},
+
 			/**
 			 * receive the AssignmentExpression node
 			 */
