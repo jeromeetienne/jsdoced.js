@@ -46,6 +46,26 @@ var processFile	= function processFile(filename, cmdlineOptions, onProcessed){
 	var transformer	= function(ast, callback) {
 		recast.visit(ast, {
 			/**
+			 * initial attempts to parse es6 arrow function
+			 */
+			visitArrowFunctionExpression: function(path){
+				// console.log('Found arrow function')
+				// console.dir(path)
+				// console.log('FunctionExpression', path.value)
+
+				// call the subtree
+				// NOTE: must be before path.replace() to avoid reccursive infinite loop (creating function in function)
+				this.traverse(path)				
+
+				// get jsdocJson for this node
+				var lineNumber	= path.value.loc.start.line-1
+				var jsdocJson	= jsdocParse.extractJsdocJson(contentLines, lineNumber)
+				// if no jsdocJson, do nothing
+				if( jsdocJson === null )	return
+				
+				console.log('jsdoc found in arrow function')			
+			},
+			/**
 			 * receive the FunctionExpression node
 			 */
 			visitFunctionExpression: function(path) {

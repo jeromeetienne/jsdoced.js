@@ -16,7 +16,7 @@ into a function expression and thus change the hoisting.
 It may break code.
 
 ```
-var foo = Object.Function(function foo(){
+var foo = Better.Function(function foo(){
     console.log('bar')
 })
 ```
