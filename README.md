@@ -3,7 +3,7 @@ jsdoced.js
 
 Tool which read your javascript code with jsdoc and ensure your jsdoc is respected when it is executed.
 
-You write your javascript files as usual, you add classic jsdoc to it because you are a nice guy. Now ```jsdoced.js yourCode.js``` will produce a ```yourCode.better.js``` code. It is the same as ```youCode.js``` but includes all the checks to ensure your jsdoc is respected.
+You write your javascript files as usual, you add classic jsdoc to it because you are a nice guy. Now ```jsdoced.js yourCode.js``` will produce a ```yourCode.jsdoced.js``` code. It is the same as ```youCode.js``` but includes all the checks to ensure your jsdoc is respected.
 It uses [better.js](http://betterjs.org) to perform this testing during execution.
 
 As better.js works run in browser and node.js, you can use that in any javascript. To run the produces betterjs code, just include [better.js](https://github.com/jeromeetienne/better.js/blob/master/build/better.js)

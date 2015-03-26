@@ -11,9 +11,9 @@ var builders    = types.builders;
 /**
  * process one file
  * 
- * @param  {String} filename       the filename to process
- * @param  {Object} cmdlineOptions the command line options
- * @return {Object}                output from recast.print()
+ * @param  {String} filename       - the filename to process
+ * @param  {Object} cmdlineOptions - the command line options
+ * @return {Object}                - output from recast.print()
  */
 var processFile	= function processFile(filename, cmdlineOptions, onProcessed){
 
