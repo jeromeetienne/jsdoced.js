@@ -98,7 +98,7 @@ var addNumbers = function(value1, value2){
 
 --
 
-# Why Using jsdoced.js ?
+## Why Using jsdoced.js ?
 
 --
 
@@ -135,17 +135,17 @@ var addNumbers = function(value1, value2){
 
 --
 
-### no Impact on your code base
+### No Impact on Your Code Base
 
-* you dont have to commit to jsdoced.js
-* you can easily add/remove jsdoced.js
-* it isn't like a new language
+* You dont have to commit to jsdoced.js
+* You can easily add/remove jsdoced.js
+* It isn't like a new language
 
 **jsdoced.js is painless to integrate**
 
 --
 
-# Why Using jsdoced.js ?
+## Why Using jsdoced.js ?
 
 --
 
@@ -177,7 +177,7 @@ Plain Javascript silently ignore those error
 
 --
 
-# Why Using jsdoced.js ?
+## Why Using jsdoced.js ?
 
 --
 

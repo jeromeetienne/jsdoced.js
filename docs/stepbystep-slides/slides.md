@@ -1,10 +1,9 @@
 title: jsdoced.js - Test your javascript with jsdoc
 output: index.html
+theme: jdan/cleaver-retro
 --
 
-
 <base target='_blank'/>
-<style>pre { background: lightgrey; font-size: 80%;}</style>
 
 # jsdoced.js
 ## - Test your Javascript with jsdoc -
@@ -197,4 +196,4 @@ addNumbers(1,3,5);
 
 --
 
-# Check it out [betterjs.org](http://betterjs.org)
+# Check it out [jsdocedjs.org](http://jsdocedjs.org)
