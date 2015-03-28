@@ -1,10 +1,7 @@
 title: Why Using jsdoced Javascript?
 output: index.html
+theme: jdan/cleaver-retro
 --
-
-
-<base target='_blank'/>
-<style>pre { background: lightgrey; font-size: 80%;}</style>
 
 # Why Using jsdoced.js ?
 ## From a CTO Point of View
@@ -69,7 +66,10 @@ var addNumbers = function(value1, value2){
 
 --
 
-### Here is some jsdoced.js
+### So you know jsdoced.js
+
+Here is some jsdoced.js. Sound Familiar, no ?
+
 
 ```
 /**
@@ -83,22 +83,18 @@ var addNumbers = function(value1, value2){
 };
 ```
 
-[jsdoced.js](http://jsdocedjs.org)
-
---
-
-# Sound Familiar, no ?
+[jsdoced.js](http://jsdocedjs.org) is just jsdoc + javascript
 
 --
 
 ### jsdoced.js is easy to learn
 
-- jsdoced.js is 2 things: jsdoc + javascript
+- jsdoced.js is just 2 things: jsdoc + javascript
 - you know javascript
 - you know jsdoc
 
 
-**In fact you already know jsdoced.js**
+**So you already know jsdoced.js**
 
 --
 
