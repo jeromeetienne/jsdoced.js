@@ -438,6 +438,62 @@ em {
 </section>
   </div>
   <div class="slide hidden" id="slide-2">
+    <section class="slide-content"><h2 id="first-a-little-intro">First a little intro</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-3">
+    <section class="slide-content"><h3 id="what-is-jsdoced-javascript">What is jsdoced javascript</h3>
+<ul>
+<li>it is a javascript to javascript compiler </li>
+<li>it reads javascript + jsdoc </li>
+<li>it add strong type checking to your code</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-4">
+    <section class="slide-content"><h2 id="steps-by-steps">Steps by Steps</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-5">
+    <section class="slide-content"><h3 id="take-javascript-jsdoc">Take javascript + jsdoc</h3>
+<pre><code>$ cat main.js
+// define a function
+
+/**
+ * Add 2 numbers 
+ * @param  {Number} value1 - first value to add
+ * @param  {Number} value2 - second value to add
+ * @return {Number} The result of the addition
+ */
+var addNumbers = function(value1, value2){
+        return value1 + value2;
+};
+
+// run it
+console.log(&#39;result is&#39;, addNumbers(&#39;foo&#39;, &#39;bar&#39;))</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-6">
+    <section class="slide-content"><h3 id="compile-it">Compile it</h3>
+<pre><code>$ # install the compiler
+$ npm install jsdoced.js</code></pre>
+<pre><code>$ # compile your source
+$ jsdoced.js --node main.js -o main.jsdoced.js</code></pre>
+<pre><code>$ # Show me the result
+$ cat main.jsdoced.js</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-7">
+    <section class="slide-content"><h3 id="run-it">Run it</h3>
+<pre><code>$ node main.jsdoced.js
+arguments 1 is a string and should be a number
+arguments 2 is a string and should be a number
+result is a string and should be a number</code></pre>
+<pre><code>$ node main.js
+result is foobar</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-8">
     <section class="slide-content"><h3 id="why-using-jsdoced-js-">Why Using jsdoced.js ?</h3>
 <ul>
 <li>It adds dynamic type checking to javascript</li>
@@ -448,26 +504,26 @@ em {
 <p>For more, see <a href="http://jsdocedjs.org">jsdoced.js site</a></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-3">
+  <div class="slide hidden" id="slide-9">
     <section class="slide-content"><h3 id="from-a-cto-point-of-view-">From a CTO Point of View ?</h3>
 <p>Here CTO is short for a personn</p>
 <ul>
-<li>using a large code base</li>
-<li>responsible to keep it running over time</li>
-<li>taking decision that impact a team of devs</li>
+<li>Using a large code base</li>
+<li>Responsible to keep it running over time</li>
+<li>Taking decision that impact a team of devs</li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-4">
+  <div class="slide hidden" id="slide-10">
     <section class="slide-content"><h2 id="so-why-a-cto-would-use-jsdoced-js-">So why a cto would use jsdoced.js ?</h2>
 </section>
   </div>
-  <div class="slide hidden" id="slide-5">
+  <div class="slide hidden" id="slide-11">
     <section class="slide-content"><h2 id="because-jsdoced-js-is">Because jsdoced.js is</h2>
 <h1 id="easy-to-learn">Easy To Learn</h1>
 </section>
   </div>
-  <div class="slide hidden" id="slide-6">
+  <div class="slide hidden" id="slide-12">
     <section class="slide-content"><h3 id="you-know-javascript">You know javascript</h3>
 <pre><code>var addNumbers = function(value1, value2){
         return value1 + value2;
@@ -475,7 +531,7 @@ em {
 <p><a href="http://en.wikipedia.org/wiki/JavaScript">javascript</a></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-7">
+  <div class="slide hidden" id="slide-13">
     <section class="slide-content"><h3 id="you-know-jsdoc">You know jsdoc</h3>
 <pre><code>/**
  * Add 2 numbers 
@@ -486,7 +542,7 @@ em {
 <p><a href="http://usejsdoc.org">jsdoc</a></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-8">
+  <div class="slide hidden" id="slide-14">
     <section class="slide-content"><h3 id="so-you-know-jsdoced-js">So you know jsdoced.js</h3>
 <p>Here is some jsdoced.js. Sound Familiar, no ?</p>
 <pre><code>/**
@@ -501,7 +557,7 @@ var addNumbers = function(value1, value2){
 <p><a href="http://jsdocedjs.org">jsdoced.js</a> is just jsdoc + javascript</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-9">
+  <div class="slide hidden" id="slide-15">
     <section class="slide-content"><h3 id="jsdoced-js-is-easy-to-learn">jsdoced.js is easy to learn</h3>
 <ul>
 <li>jsdoced.js is just 2 things: jsdoc + javascript</li>
@@ -511,16 +567,16 @@ var addNumbers = function(value1, value2){
 <p><strong>So you already know jsdoced.js</strong></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-10">
-    <section class="slide-content"><h1 id="why-using-jsdoced-js-">Why Using jsdoced.js ?</h1>
+  <div class="slide hidden" id="slide-16">
+    <section class="slide-content"><h2 id="why-using-jsdoced-js-">Why Using jsdoced.js ?</h2>
 </section>
   </div>
-  <div class="slide hidden" id="slide-11">
+  <div class="slide hidden" id="slide-17">
     <section class="slide-content"><h2 id="because-jsdoced-js-is">Because jsdoced.js is</h2>
 <h1 id="painless-to-integrate">Painless to Integrate</h1>
 </section>
   </div>
-  <div class="slide hidden" id="slide-12">
+  <div class="slide hidden" id="slide-18">
     <section class="slide-content"><h3 id="you-keep-your-code">You keep your code</h3>
 <pre><code>var addNumbers = function(value1, value2){
         return value1 + value2;
@@ -528,7 +584,7 @@ var addNumbers = function(value1, value2){
 <p><strong>You keep using javascript</strong></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-13">
+  <div class="slide hidden" id="slide-19">
     <section class="slide-content"><h3 id="you-keep-your-docs">You keep your docs</h3>
 <pre><code>/**
  * Add 2 numbers 
@@ -539,26 +595,26 @@ var addNumbers = function(value1, value2){
 <p><strong>You keep using jsdoc</strong></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
-    <section class="slide-content"><h3 id="no-impact-on-your-code-base">no Impact on your code base</h3>
+  <div class="slide hidden" id="slide-20">
+    <section class="slide-content"><h3 id="no-impact-on-your-code-base">No Impact on Your Code Base</h3>
 <ul>
-<li>you dont have to commit to jsdoced.js</li>
-<li>you can easily add/remove jsdoced.js</li>
-<li>it isn&#39;t like a new language</li>
+<li>You dont have to commit to jsdoced.js</li>
+<li>You can easily add/remove jsdoced.js</li>
+<li>It isn&#39;t like a new language</li>
 </ul>
 <p><strong>jsdoced.js is painless to integrate</strong></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-15">
-    <section class="slide-content"><h1 id="why-using-jsdoced-js-">Why Using jsdoced.js ?</h1>
+  <div class="slide hidden" id="slide-21">
+    <section class="slide-content"><h2 id="why-using-jsdoced-js-">Why Using jsdoced.js ?</h2>
 </section>
   </div>
-  <div class="slide hidden" id="slide-16">
+  <div class="slide hidden" id="slide-22">
     <section class="slide-content"><h2 id="because-jsdoced-js-helps-you">Because jsdoced.js helps you</h2>
 <h1 id="detect-new-family-of-errors">Detect New Family of Errors</h1>
 </section>
   </div>
-  <div class="slide hidden" id="slide-17">
+  <div class="slide hidden" id="slide-23">
     <section class="slide-content"><h3 id="new-family-of-errors">New Family of Errors</h3>
 <ul>
 <li>You already passed a <strong>wrong type of argument</strong> ?</li>
@@ -569,7 +625,7 @@ var addNumbers = function(value1, value2){
 <p><strong>jsdoced.js warn you immediatly</strong></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-18">
+  <div class="slide hidden" id="slide-24">
     <section class="slide-content"><h3 id="finding-bugs-is-good">Finding Bugs is Good</h3>
 <ul>
 <li>Well, bugs aren&#39;t good news :)</li>
@@ -579,16 +635,16 @@ var addNumbers = function(value1, value2){
 <p><strong>jsdoced.js makes your code more stable</strong></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-19">
-    <section class="slide-content"><h1 id="why-using-jsdoced-js-">Why Using jsdoced.js ?</h1>
+  <div class="slide hidden" id="slide-25">
+    <section class="slide-content"><h2 id="why-using-jsdoced-js-">Why Using jsdoced.js ?</h2>
 </section>
   </div>
-  <div class="slide hidden" id="slide-20">
+  <div class="slide hidden" id="slide-26">
     <section class="slide-content"><h2 id="because-jsdoced-js-helps-you">Because jsdoced.js helps you</h2>
 <h1 id="document-your-code">Document your code</h1>
 </section>
   </div>
-  <div class="slide hidden" id="slide-21">
+  <div class="slide hidden" id="slide-27">
     <section class="slide-content"><h3 id="documenting-code-is-good">Documenting code is good</h3>
 <ul>
 <li>make your code base easier to learn</li>
@@ -597,7 +653,7 @@ var addNumbers = function(value1, value2){
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-22">
+  <div class="slide hidden" id="slide-28">
     <section class="slide-content"><h3 id="jsdoced-js-creates-virtuous-cycle">jsdoced.js creates virtuous cycle</h3>
 <ul>
 <li>Documenting doc is good for your devs</li>
@@ -607,7 +663,7 @@ var addNumbers = function(value1, value2){
 <p><strong>The safer it becomes</strong></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-23">
+  <div class="slide hidden" id="slide-29">
     <section class="slide-content"><h1 id="check-it-out-jsdocedjs-org-http-jsdocedjs-org-">Check it out <a href="http://jsdocedjs.org">jsdocedjs.org</a></h1>
 <h2 id="by-jerome-etienne-http-twitter-com-jerome_etienne-">by <a href="http://twitter.com/jerome_etienne">Jerome Etienne</a></h2>
 </section>

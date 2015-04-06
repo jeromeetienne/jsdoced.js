@@ -8,6 +8,80 @@ theme: jdan/cleaver-retro
 
 --
 
+## First a little intro
+
+--
+
+### What is jsdoced javascript
+
+- it is a javascript to javascript compiler 
+- it reads javascript + jsdoc 
+- it add strong type checking to your code
+
+--
+
+## Steps by Steps
+
+--
+
+### Take javascript + jsdoc
+
+```
+$ cat main.js
+// define a function
+
+/**
+ * Add 2 numbers 
+ * @param  {Number} value1 - first value to add
+ * @param  {Number} value2 - second value to add
+ * @return {Number} The result of the addition
+ */
+var addNumbers = function(value1, value2){
+        return value1 + value2;
+};
+
+// run it
+console.log('result is', addNumbers('foo', 'bar'))
+```
+
+--
+
+### Compile it
+
+```
+$ # install the compiler
+$ npm install jsdoced.js
+```
+
+```
+$ # compile your source
+$ jsdoced.js --node main.js -o main.jsdoced.js
+```
+
+```
+$ # Show me the result
+$ cat main.jsdoced.js
+```
+
+--
+
+### Run it
+
+```
+$ node main.jsdoced.js
+arguments 1 is a string and should be a number
+arguments 2 is a string and should be a number
+result is a string and should be a number
+```
+
+
+```
+$ node main.js
+result is foobar
+```
+
+--
+
 ### Why Using jsdoced.js ?
 
 - It adds dynamic type checking to javascript
@@ -23,9 +97,9 @@ For more, see [jsdoced.js site](http://jsdocedjs.org)
 
 Here CTO is short for a personn
 
-- using a large code base
-- responsible to keep it running over time
-- taking decision that impact a team of devs
+- Using a large code base
+- Responsible to keep it running over time
+- Taking decision that impact a team of devs
 
 --
 
