@@ -34,6 +34,8 @@ if( process.argv[2] === '-h' || process.argv[2] === undefined ){
 	console.log('')
 	console.log('\t--log		Log events on stderr')
 	console.log('')
+	console.log('\t--node		Add code specific for node.js')
+	console.log('')
 	console.log('\t--property	Enable Better.Property (beta)')
 	console.log('\t--no-property	Disable Better.Property (beta)')
 	console.log('')
@@ -101,6 +103,8 @@ var cmdlineOptions	= {
 	
 	typeInString		: false,
 
+	addNodejsSpecific		: false,
+
 	generateSourceMap	: false,
 	
 	outputFileName		: null,
@@ -138,6 +142,9 @@ for(var i = 2; process.argv[i] !== undefined; i++){
 	}else if( process.argv[i] === '--log' ){
 		cmdlineOptions.logEvents	= true
 		continue;
+	}else if( process.argv[i] === '--node'  ){
+		cmdlineOptions.addNodejsSpecific = true
+		continue;
 	}else if( process.argv[i] === '--property' ){
 		cmdlineOptions.propertyEnabled	= true
 		continue;
@@ -168,13 +175,23 @@ if( cmdlineOptions.outputFileName ){
 			
 cmdlineOptions.fileNames.forEach(function(sourceFileName){
 
-	var processOne	= require('./libs/processFile.js').processOne
+	var processFile	= require('./libs/processFile.js').processFile
 	
-	processOne(sourceFileName, cmdlineOptions, function(output){
+	processFile(sourceFileName, cmdlineOptions, function(output){
 		//////////////////////////////////////////////////////////////////////////////////
 		//		write the code
 		//////////////////////////////////////////////////////////////////////////////////
-		var code	= output.code
+		var code = ''
+		
+		// Prepend node.js specific
+		if( cmdlineOptions.addNodejsSpecific === true ){
+			code += '// Include better.js as global for node.js\n';
+			code += 'global.Better = global.Better || require(\'better.js\');\n';
+			code += '\n';
+		}
+
+		// add the transpiled code
+		code	+= output.code
 
 		// Append the sourcemap url to the better.js files
 		if( cmdlineOptions.generateSourceMap === true ){

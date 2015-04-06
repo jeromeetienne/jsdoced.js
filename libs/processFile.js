@@ -121,7 +121,7 @@ var processFile	= function processFile(filename, cmdlineOptions, onProcessed){
 		callback(ast);
 	}
 	//////////////////////////////////////////////////////////////////////////////////
-	//		Comment								//
+	//		Actually process the file
 	//////////////////////////////////////////////////////////////////////////////////
 
 	// parse the file content
@@ -145,5 +145,5 @@ var processFile	= function processFile(filename, cmdlineOptions, onProcessed){
 
 // export the module
 module.exports	= {
-	processOne	: processFile,
+	processFile	: processFile,
 }
