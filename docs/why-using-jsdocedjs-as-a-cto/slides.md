@@ -1,6 +1,5 @@
 title: Why Using jsdoced Javascript?
 output: index.html
-theme: jdan/cleaver-retro
 --
 
 # Why Using jsdoced.js ?
@@ -16,7 +15,8 @@ theme: jdan/cleaver-retro
 
 - It is a javascript to javascript compiler 
 - It reads javascript + jsdoc 
-- It add strong type checking to your code
+- It outputs code which test with jsdoc
+- It makes sure your jsdoc is respected when running
 
 --
 
@@ -37,24 +37,40 @@ var addNumbers = function(value1, value2){
         return value1 + value2;
 };
 
-// run addNumbers()
+// run addNumbers() with an error
 console.log('result is', addNumbers('foo', 'bar'))
 ```
 
 --
 
-### Compile it
+### Run it as plain javascript
+
+Plain javascript silently ignore the error
 
 ```
-$ # install the compiler
-$ sudo npm -g install jsdoced.js
-$
-$ # compile your source
-$ jsdoced.js --node main.js -o main.jsdoced.js
+$ node main.js
+result is foobar
 ```
+
 --
 
-### Run it
+### Compile it as jsdoced javascript
+
+First install the compiler
+
+```bash
+$ sudo npm -g install jsdoced.js
+```
+
+Compile your source
+
+```
+$ jsdoced.js --node main.js -o main.jsdoced.js
+```
+
+--
+
+### Run it as jsdoced javascript
 
 jsdoced javascript detects the error
 
@@ -65,17 +81,22 @@ arguments 2 is a string and should be a number
 result is a string and should be a number
 ```
 
-Plain javascript silently ignore it
-
-```
-$ node main.js
-result is foobar
-```
+That's it.
 --
 
-### So... What is jsdoced javascript
+## So... 
 
-It tests your javascript with jsdoc
+-- 
+
+# What is jsdoced javascript ?
+
+--
+
+## **Jsdoced javascript**
+
+## **tests your javascript**
+
+## **with jsdoc**
 
 --
 
