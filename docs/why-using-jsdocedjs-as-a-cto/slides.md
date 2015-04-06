@@ -14,9 +14,9 @@ theme: jdan/cleaver-retro
 
 ### What is jsdoced javascript
 
-- it is a javascript to javascript compiler 
-- it reads javascript + jsdoc 
-- it add strong type checking to your code
+- It is a javascript to javascript compiler 
+- It reads javascript + jsdoc 
+- It add strong type checking to your code
 
 --
 
@@ -26,7 +26,20 @@ theme: jdan/cleaver-retro
 
 ### Take javascript + jsdoc
 
-![Alt text](screenshot-mainjs.png)
+```
+/**
+ * Add 2 numbers 
+ * @param  {Number} value1 - first value to add
+ * @param  {Number} value2 - second value to add
+ * @return {Number} The result of the addition
+ */
+var addNumbers = function(value1, value2){
+        return value1 + value2;
+};
+
+// run addNumbers()
+console.log('result is', addNumbers('foo', 'bar'))
+```
 
 --
 
@@ -34,7 +47,7 @@ theme: jdan/cleaver-retro
 
 ```
 $ # install the compiler
-$ npm install jsdoced.js
+$ sudo npm -g install jsdoced.js
 $
 $ # compile your source
 $ jsdoced.js --node main.js -o main.jsdoced.js
@@ -255,9 +268,9 @@ Plain Javascript silently ignore those error
 
 ### Documenting code is good
 
-- make your code base easier to learn
-- good in a large team where people come and go
-- developers dont like to write documentation
+- Make your code base easier to learn
+- Good in a large team where people come and go
+- Developers dont like to write documentation
 
 --
 
@@ -270,6 +283,37 @@ Plain Javascript silently ignore those error
 
 **The safer it becomes**
 
+--
+
+## So...
+
+--
+
+# Why Using jsdoced.js ?
+
+--
+
+## It is 
+
+# Easy To Learn
+
+--
+
+## It is 
+
+# Painless to integrate
+
+--
+
+## It is
+
+# Detects new family of errors
+
+--
+
+## It is helps
+
+# Document Your Code
 
 --
 

@@ -1,5 +1,3 @@
-// $ cat main.js
-
 /**
  * Add 2 numbers 
  * @param  {Number} value1 - first value to add
@@ -10,5 +8,5 @@ var addNumbers = function(value1, value2){
         return value1 + value2;
 };
 
-// run addNumbers()t
+// run addNumbers()
 console.log('result is', addNumbers('foo', 'bar'))
