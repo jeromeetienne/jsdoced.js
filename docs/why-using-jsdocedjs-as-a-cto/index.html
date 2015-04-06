@@ -456,31 +456,16 @@ em {
   </div>
   <div class="slide hidden" id="slide-5">
     <section class="slide-content"><h3 id="take-javascript-jsdoc">Take javascript + jsdoc</h3>
-<pre><code>$ cat main.js
-// define a function
-
-/**
- * Add 2 numbers 
- * @param  {Number} value1 - first value to add
- * @param  {Number} value2 - second value to add
- * @return {Number} The result of the addition
- */
-var addNumbers = function(value1, value2){
-        return value1 + value2;
-};
-
-// run it
-console.log(&#39;result is&#39;, addNumbers(&#39;foo&#39;, &#39;bar&#39;))</code></pre>
+<p><img src="screenshot-mainjs.png" alt="Alt text"></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-6">
     <section class="slide-content"><h3 id="compile-it">Compile it</h3>
 <pre><code>$ # install the compiler
-$ npm install jsdoced.js</code></pre>
-<pre><code>$ # compile your source
+$ npm install jsdoced.js
+$
+$ # compile your source
 $ jsdoced.js --node main.js -o main.jsdoced.js</code></pre>
-<pre><code>$ # Show me the result
-$ cat main.jsdoced.js</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-7">

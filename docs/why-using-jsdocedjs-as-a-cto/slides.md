@@ -26,23 +26,7 @@ theme: jdan/cleaver-retro
 
 ### Take javascript + jsdoc
 
-```
-$ cat main.js
-// define a function
-
-/**
- * Add 2 numbers 
- * @param  {Number} value1 - first value to add
- * @param  {Number} value2 - second value to add
- * @return {Number} The result of the addition
- */
-var addNumbers = function(value1, value2){
-        return value1 + value2;
-};
-
-// run it
-console.log('result is', addNumbers('foo', 'bar'))
-```
+![Alt text](screenshot-mainjs.png)
 
 --
 
@@ -51,18 +35,10 @@ console.log('result is', addNumbers('foo', 'bar'))
 ```
 $ # install the compiler
 $ npm install jsdoced.js
-```
-
-```
+$
 $ # compile your source
 $ jsdoced.js --node main.js -o main.jsdoced.js
 ```
-
-```
-$ # Show me the result
-$ cat main.jsdoced.js
-```
-
 --
 
 ### Run it
