@@ -67,6 +67,8 @@ $ cat main.jsdoced.js
 
 ### Run it
 
+jsdoced javascript detects the error
+
 ```
 $ node main.jsdoced.js
 arguments 1 is a string and should be a number
@@ -74,11 +76,25 @@ arguments 2 is a string and should be a number
 result is a string and should be a number
 ```
 
+Plain javascript silently ignore it
 
 ```
 $ node main.js
 result is foobar
 ```
+--
+
+### So... What is jsdoced javascript
+
+It tests your javascript with jsdoc
+
+--
+
+## So ...
+
+# Why Using jsdoced.js
+
+## From a CTO point of view
 
 --
 
