@@ -1,4 +1,4 @@
-title: jsdoced.js video - slide intro
+title: JSDOCed Javascript - Test your javascript files with jsdoc
 output: index.html
 --
 
@@ -9,7 +9,9 @@ output: index.html
 <style>h3 { border-bottom: 0; text-align: center; }</style>
 
 
-# JSDOCed Javascript
+# jsdoced.js
+
+## Test your javascript files with jsdoc
 
 ## by [@jerome_etienne](http://twitter.com/jerome_etienne)
 
@@ -54,18 +56,6 @@ output: index.html
 
 --
 
-## By just compiling
-
-# Javascript
-# to Javascript ?
-
---
-
-
-# ...
-
---
-
 ### It turns out we can :)
 
 --
@@ -77,28 +67,6 @@ output: index.html
 --
 
 ### How to compile 
-
-### javascript to javascript 
-
-### to make javascript better
-
---
-
-## First let's see our source language in more details
-
---
-
-## We call our new javascript dialect
-
-# [Jsdoced Javascript](http://betterjs.org/docs/betterjs-jsdocedjs.html)
-
---
-
-## Remember...
-
---
-
-### Compiling
 
 ### javascript to javascript 
 
@@ -155,45 +123,6 @@ var addNumbers = function(value1, value2){
 
 # [Jsdoced Javascript](http://betterjs.org/docs/betterjs-jsdocedjs.html)
 
-
---
-
-# Possibilities of [Jsdoced Javascript](http://betterjs.org/docs/betterjs-jsdocedjs.html)
-
---
-
-### What JSDOC adds to Plain JS ?
-* Contains lot of info meta informations
-* Information missing to javascript
-
---
-
-### jsdoced.js adds new features
-* strong typing
-* private visibility
-
-**Javascript with strong typing ? Exciting no ?**
-
---
-
-### About Strong Typing
-
-* ```@param``` strong typing for arguments
-* ```@return``` strong typing for return value
-* ```@type``` strong typing for property
-
---
-
-### About Private Visibility
-
-* ```@class``` to mark a function as constructor
-* ```@private``` private visibility
-
---
-
-## TODO which error will be detected now
-
-
 --
 
 # Benefits
@@ -208,7 +137,6 @@ var addNumbers = function(value1, value2){
 - use your existing doc
 
 **Easy Integration!**
-
 
 --
 
@@ -239,8 +167,60 @@ var addNumbers = function(value1, value2){
 
 --
 
-# TODO outtro
+# Demo Time
 
 --
 
+### Let's take a basic page
+
+- an index.html
+- an addNumbers.js
+
+**Lets look at the source**
+
+--
+
+### Let's Run it as Plain JS
+
+- ```addNumbers(1,2) // 3``` OK
+- ```addNumbers(3,-5) // -2 ``` OK
+- ```addNumbers(3,'foo') // 3foo ``` ooopsa :(
+
+**In chrome console**
+
+--
+
+### Install jsdoced.js Compiler
+
+```
+sudo npm install -g jsdoced.js
+```
+
+As simple as that
+
+--
+
+### Compilation as Jsdoced Javascript
+
+```
+jsdoced.js addNumbers.js -o addNumbers.jsdoced.js
+```
+
+*be sure to load modify it in the html*
+
+--
+
+## And now
+
+-- 
+
+### Let's test is as jsdoced.js
+
+- ```addNumbers(1,2) // 3``` OK
+- ```addNumbers(3,-5) // -2 ``` OK
+- ```addNumbers(3,'foo') // ERROR ``` HOURA :(
+
+**In chrome console**
+
+--
 # Check it out at [jsdocedjs.org](http://jsdocedjs.org)
