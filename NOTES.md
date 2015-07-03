@@ -5,7 +5,7 @@
     - unclear which javascript output
 
 ```
-var bli = { 
+var bli = {
     /** @type {String} - a string */
     foo: 'bar'
 };

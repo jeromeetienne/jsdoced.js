@@ -7,7 +7,7 @@ if( typeof(window) === 'undefined' )	module.exports	= jsdocParse;
 
 /**
  * parse jsdoc comment and return a 'json-ified' version of it
- * 
+ *
  * @param  {String} jsdocContent String containing the content
  * @return {Object} the json object
  */
@@ -46,7 +46,7 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 	//		Tags
 	//////////////////////////////////////////////////////////////////////////////////
 	lines.forEach(function(line){
-		// console.log('line', line)
+		console.log('line', line)
 		// console.log('tag line', line.match(/^@/))
 		if( line.match(/^@/) === null )	return
 		var matches	= line.match(/^@([^\s])+/)
@@ -55,19 +55,46 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 
 		// console.log('tagName', tagName )
 		if( tagName === 'param' ){
-			var matches	= line.match(/^@([^\s]+)\s+{([^\s]+)}\s+([^\s]+)\s+(.*)$/)
-			// console.log('matches', matches )
-			console.assert(matches.length === 5)
-			var paramType		= matches[2]
-			var paramName		= matches[3]
-			var paramDescription	= matches[4]
-			output.params[paramName]	= {
-				type		: canonizeType(paramType),
-				description	: paramDescription
+			// reference http://usejsdoc.org/tags-param.html
+			// - @param somebody
+
+			// PARSE
+			// - @param {string} somebody my description goes here
+			// - @param {string} somebody
+			var matches	= line.match(/^@([^\s]+)\s+{([^\s]+)}\s+([^\s]+)\s*(.*)$/)
+			if( matches !== null ){
+				console.assert(matches.length === 5)
+				var paramType		= matches[2]
+				var paramName		= matches[3]
+				var paramDescription	= matches[4]	// result is empty string
+				output.params[paramName]	= {
+					type		: canonizeType(paramType),
+					description	: paramDescription
+				}
+				return
 			}
+
+			// PARSE
+			// - @param somebody
+			var matches	= line.match(/^@([^\s]+)\s+([^\s]+)\s*$/)
+			console.log('matches simple', matches, line)
+			if( matches !== null ){
+				console.assert(matches.length === 3)
+				var paramType		= ''
+				var paramName		= matches[2]
+				var paramDescription	= ''
+				output.params[paramName]	= {
+					type		: canonizeType(paramType),
+					description	: paramDescription
+				}
+				return
+			}
+
+			console.assert(false, 'unknown format for @param')
+			return
 		}else if( tagName === 'return' ||  tagName === 'returns' ){
+			// reference http://usejsdoc.org/tags-returns.html
 			var matches	= line.match(/^@([^\s]+)\s+{([^\s]+)}\s+(.*)$/)
-			// console.log('matches', matches )
 			console.assert(matches.length === 4)
 			var paramType		= matches[2]
 			var paramDescription	= matches[3]
@@ -76,8 +103,8 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 				description	: paramDescription
 			}
 		}else if( tagName === 'type' ){
+			// reference http://usejsdoc.org/tags-type.html
 			var matches	= line.match(/^@([^\s]+)\s+{([^\s]+)}(.*)$/)
-			// console.log('matches', matches )
 			console.assert(matches.length === 4)
 			var paramType		= matches[2]
 			output.type		= canonizeType(paramType)
@@ -93,7 +120,7 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 	/**
 	 * canonize a @type.
 	 * - it handles a good subset of http://usejsdoc.org/tags-type.html
-	 * 
+	 *
 	 * @param  {String} type - the type as a string from jsdoc
 	 * @return {String}      The type as a string for better.js
 	 */
@@ -104,7 +131,7 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 		//////////////////////////////////////////////////////////////////////////////////
 
 		// handle the multiple param case
-		var hasMultiple	= type.split('|').length > 1 ? true : false 
+		var hasMultiple	= type.split('|').length > 1 ? true : false
 		if( hasMultiple ){
 			var canonizedType	= ''
 			type.split('|').forEach(function(type, index){
@@ -119,11 +146,11 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 
 		/**
 		 * process one @type
-		 * 
+		 *
 		 * @param  {String} paramType - the type as a string from jsdoc
 		 * @return {String}           The type as a string for better.js
 		 */
-		function processOne(paramType){		
+		function processOne(paramType){
 			if( paramType.toLowerCase() === 'function' )	return 'Function'
 			if( paramType.toLowerCase() === 'object' )	return 'Object'
 			if( paramType.toLowerCase() === 'boolean' )	return 'Boolean'
@@ -146,17 +173,20 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 			// honor "@type {Number=} - an option number"
 			if( paramType.match(/=$/i) )	return canonizeType(paramType.slice(0,-1))+'|undefined'
 
+			// if there is no paramType specified, use better.js "any"
+			if( paramType === '' )	return '\"any\"'
+
 			return paramType
 		}
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////
-	//		post processing 
+	//		post processing
 	//////////////////////////////////////////////////////////////////////////////////
 
 	// honor output.isClass
 	var hasConstructor	= Object.getOwnPropertyNames(output.tags).indexOf('constructor') !== -1 ? true : false
-	var hasClass		= output.tags.class	? true : false 
+	var hasClass		= output.tags.class	? true : false
 	output.isClass	= ( hasClass || hasConstructor ) ? true : false
 
 	// honor "@param {String} [myString] - this is a optional string"
@@ -202,11 +232,11 @@ jsdocParse.extractJsdocContent	= function(lines, bottomLine){
 // console.log('lineEnd', lineEnd)
 	// skip blank lines
 	while( lineEnd >= 0 && lines[lineEnd].match(/^\s*$/) !== null ){
-		lineEnd -- 
+		lineEnd --
 		// console.log('skip')
 	}
 
-	if( lineEnd < 0 )	return null		
+	if( lineEnd < 0 )	return null
 
 // console.log('lineEnd', lineEnd, lines[lineEnd])
 	// check if it is the signature end
@@ -225,7 +255,7 @@ jsdocParse.extractJsdocContent	= function(lines, bottomLine){
 
 /**
  * extract jsdoc and return it as json
- * 
+ *
  * @param  {String[]} 	lines      [description]
  * @param  {Number}	bottomLine [description]
  * @return {Object|null}           [description]
