@@ -10,7 +10,7 @@ this is a function declaration. it is [way different](http://bonsaiden.github.io
 
 
 ## Issue
-currently jsdoc2better do not handle function declaration. 
+currently jsdoced.js does not handle function declaration. 
 The usual function wrapping would change the function declaration
 into a function expression and thus change the hoisting. 
 It may break code.

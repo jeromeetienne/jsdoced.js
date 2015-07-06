@@ -1,0 +1,15 @@
+<script src='../build/better.js'></script>
+<script>
+        function foo(){
+                foo.__fct = foo.__fct || Better.Function(function foo(message){
+                        console.log('bar', message)
+                        return 'ddd'
+                }, {
+                        arguments	: [String],
+                        return          : Number
+                })
+                return foo.__fct.apply(this, arguments)
+        }
+
+        foo('ddd')
+</script>
