@@ -1,3 +1,10 @@
+/**
+ * @fileOverview parse jsdoc content
+ */
+
+/**
+ * @namespace
+ */
 var jsdocParse	= jsdocParse	|| {}
 
 
