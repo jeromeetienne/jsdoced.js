@@ -8,7 +8,7 @@
 var jsdocParse	= jsdocParse	|| {}
 
 
-
+// export to node.js
 if( typeof(window) === 'undefined' )	module.exports	= jsdocParse;
 
 
@@ -53,7 +53,7 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 	//		Tags
 	//////////////////////////////////////////////////////////////////////////////////
 	lines.forEach(function(line){
-		console.log('line', line)
+		// console.log('line', line)
 		// console.log('tag line', line.match(/^@/))
 		if( line.match(/^@/) === null )	return
 		var matches	= line.match(/^@([^\s])+/)
@@ -62,10 +62,10 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 
 		// console.log('tagName', tagName )
 		if( tagName === 'param' ){
+			// param may have multiple formats
 			// reference http://usejsdoc.org/tags-param.html
-			// - @param somebody
 
-			// PARSE
+			// PARSE following formats
 			// - @param {string} somebody my description goes here
 			// - @param {string} somebody
 			var matches	= line.match(/^@([^\s]+)\s+{([^\s]+)}\s+([^\s]+)\s*(.*)$/)
@@ -81,10 +81,9 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 				return
 			}
 
-			// PARSE
+			// PARSE following formats
 			// - @param somebody
 			var matches	= line.match(/^@([^\s]+)\s+([^\s]+)\s*$/)
-			console.log('matches simple', matches, line)
 			if( matches !== null ){
 				console.assert(matches.length === 3)
 				var paramType		= ''
@@ -132,7 +131,6 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
 	 * @return {String}      The type as a string for better.js
 	 */
 	function canonizeType(type){
-
 		//////////////////////////////////////////////////////////////////////////////////
 		//		Comments
 		//////////////////////////////////////////////////////////////////////////////////
