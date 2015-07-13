@@ -230,20 +230,15 @@ jsdocParse.parseJsdoc	= function(jsdocContent){
  */
 jsdocParse.extractJsdocContent	= function(lines, bottomLine){
 	console.assert(bottomLine >= 0)
-// console.log('jsdocParse.extractJsdocContent', arguments)
-	var lineEnd	= bottomLine-1
 
-// console.assert(false)
-// console.log('lineEnd', lineEnd)
+	var lineEnd	= bottomLine-1
 	// skip blank lines
 	while( lineEnd >= 0 && lines[lineEnd].match(/^\s*$/) !== null ){
 		lineEnd --
 		// console.log('skip')
 	}
-
 	if( lineEnd < 0 )	return null
 
-// console.log('lineEnd', lineEnd, lines[lineEnd])
 	// check if it is the signature end
 	if( lines[lineEnd].match(/\*\/\s*$/) === null )	return null
 

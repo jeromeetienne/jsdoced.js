@@ -1,5 +1,13 @@
 <script src='../node_modules/better.js/build/better.js'></script>
 <script>
+
+        // original function declaration
+        // function foo(message){
+        //         console.log('bar', message)
+        //         return 'ddd'
+        // }
+
+        // better.js version function declaration
         function foo(){
                 foo.__fct = foo.__fct || Better.Function(function foo(message){
                         console.log('bar', message)

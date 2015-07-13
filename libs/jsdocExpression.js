@@ -73,7 +73,7 @@ jsdocExpression.jsdocJsonFunction2CallExpression	= function(jsdocJson, functionE
 		))
 	}
 
-	// if cmdlineOptions.privatizeClass, Enable .private : true by default classes
+	// if cmdlineOptions.privatizeClass, Enable .privatize : true by default classes
 	if( jsdocJson.isClass && cmdlineOptions.privatizeClasses === true ){
 		options.push(builders.property('init',
 			builders.identifier('privatize'), 
@@ -116,8 +116,8 @@ jsdocExpression.jsdocJsonFunction2CallExpression	= function(jsdocJson, functionE
  * @return {CallExpression}     the resulting call expression
  */
 jsdocExpression.jsdocJsonProperty2AssignmentExpression	= function(jsdocJson, assignmentExpression, cmdlineOptions){
-	var leftExpression		= assignmentExpression.left
-	var rightExpression		= assignmentExpression.right
+	var leftExpression	= assignmentExpression.left
+	var rightExpression	= assignmentExpression.right
 
 
 	// console.log('assignment expression', assignmentExpression.right)
