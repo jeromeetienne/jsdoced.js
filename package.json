@@ -1,6 +1,6 @@
 {
   "name": "jsdoced.js",
-  "version": "0.1.9-dev",
+  "version": "0.1.10",
   "description": "js-to-js compiler to make js better.",
   "bin": {
     "jsdoced.js": "./jsdoced.js"
