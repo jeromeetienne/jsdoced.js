@@ -1,6 +1,6 @@
 {
   "name": "jsdoced.js",
-  "version": "0.1.10",
+  "version": "0.2.1",
   "description": "js-to-js compiler to make js better.",
   "bin": {
     "jsdoced.js": "./jsdoced.js"
@@ -23,7 +23,7 @@
   ],
   "author": "Jerome Etienne",
   "dependencies": {
-    "better.js": "0.0.19",
+    "better.js": "*",
     "node-static": "^0.7.6",
     "recast": "^0.9.15"
   },
