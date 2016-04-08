@@ -18,6 +18,10 @@ module.exports = function(babel) {
                                 
                                 console.log('found jsdoc', jsdocJson)
                                 console.log(path.node)
+                                // TODO now add a line at the begining of the function 
+                                // - to check the arguments
+                                // TODO add a line at the end to check the return type
+                                // - to check the return type
                         },
 
                         Program(path, file) {
