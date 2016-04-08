@@ -1,2 +1,2 @@
 test:
-	babel sample.js --plugins ./myPlugin.js
+	babel ./examples/sample.js --plugins ../babel-jsdoced.js

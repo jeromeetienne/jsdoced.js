@@ -17,6 +17,7 @@ module.exports = function(babel) {
 				if( jsdocJson === null )	return
                                 
                                 console.log('found jsdoc', jsdocJson)
+                                console.log(path.node)
                         },
 
                         Program(path, file) {
