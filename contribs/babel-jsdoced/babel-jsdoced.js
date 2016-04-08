@@ -1,12 +1,28 @@
+
+var jsdocParse	= require('../../libs/jsdocParse.js')
+
 module.exports = function(babel) {
         var t = babel.types
+	var contentLines;
         console.log('Loading my babel plugin')
         return {
                 visitor: {
                         FunctionExpression : function(path) {
                                 console.log("FunctionExpression HERE", path.node.loc.start.line)
-                                // path.node.loc.start.line-1
+
+				// get jsdocJson for this node
+                                var lineNumber  = path.node.loc.start.line-1
+                                var jsdocJson	= jsdocParse.extractJsdocJson(contentLines, lineNumber)
+				// if no jsdocJson, do nothing
+				if( jsdocJson === null )	return
+                                
+                                console.log('found jsdoc', jsdocJson)
                         },
+
+                        Program(path, file) {
+                                // console.log('Program', file.file.code)
+                        	contentLines   = file.file.code.split('\n')
+			}
 
                         // Program(path, file) {
 			// 	path.unshiftContainer('body', t.expressionStatement(t.stringLiteral('use helloworld')));
