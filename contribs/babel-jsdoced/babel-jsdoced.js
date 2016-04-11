@@ -1,4 +1,6 @@
 var babylon = require('babylon')
+var template = require('babel-template')
+var generate = require('babel-generator')
 
 var jsdocParse	= require('../../libs/jsdocParse.js')
 
@@ -17,6 +19,7 @@ module.exports = function(babel) {
         var t = babel.types
 	var contentLines;
         console.log('Loading my babel plugin')
+        var RETURN_MARKER = Symbol();
         return {
                 visitor: {
                         FunctionDeclaration : function(path) {
@@ -44,31 +47,24 @@ module.exports = function(babel) {
                                 var visitorReturn = {
                                         ReturnStatement : function(path){
                                                 console.log('ReturnStatement', path.node)
-                                                /**
-                                                 * replace return argument by
-                                                 *
-                                                 * {var return_value_12 = argument;
-                                                 *  console.assert(typeof return_value_12 === "string");
-                                                 *  return return_value_12
-                                                 * }
-                                                 */
-                                                var newNode = babylon.parse('return "ddd"', {
-                                                        allowReturnOutsideFunction : true
-                                                });
+
+                                                // When processing the 'return' path, mark it so you know you've processed it.
+                                                if (path.node[RETURN_MARKER]) return;
                                                 
-                                                // var varName = path.scope.generateUidIdentifier("returnValue").name
-                                                // var code = 'var '+varName+" = 2;"
-                                                // console.log('code', code)
-                                                // console.log(newNode.tokens)
-                                                // console.assert(false)
-                                                path.replaceWith(newNode);
-                                                // path.replaceWithSourceString('return("ddd")')
-                                                // path.remove
-  // path.replaceWithMultiple([
-  //   t.expressionStatement(t.stringLiteral("Is this the real life?")),
-  //   t.expressionStatement(t.stringLiteral("Is this just fantasy?")),
-  //   t.expressionStatement(t.stringLiteral("(Enjoy singing the rest of the song in your head)")),
-  // ]);
+                                                var returnTemplate = babel.template(`
+                                                        {
+                                                                var VARNAME = RETURN_VALUE;
+                                                                console.assert(VARNAME instanceof String);
+                                                                return VARNAME;
+                                                        }
+                                                `);
+
+                                                var block = returnTemplate({
+                                                        VARNAME : path.scope.generateUidIdentifier("returnValue"),
+                                                        RETURN_VALUE : path.node.argument,
+                                                });
+                                                block.body[2][RETURN_MARKER] = true;
+                                                path.replaceWith(block);
                                         },
                                 }
                                 path.traverse(visitorReturn);

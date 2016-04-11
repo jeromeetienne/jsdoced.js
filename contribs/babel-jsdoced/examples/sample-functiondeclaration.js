@@ -7,5 +7,5 @@
 function myFunctionDeclaration(myString1, myString2){
         console.log('myString is', myString2);
         var n = 2;
-        return n;
+        return n + (function(){ return 2;});
 }
